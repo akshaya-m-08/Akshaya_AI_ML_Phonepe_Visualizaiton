@@ -1,7 +1,7 @@
-from functions import clone_repo
-from functions import load_agg_trans_data,load_agg_user_data,load_agg_ins_data
-from functions import load_map_trans_data,load_map_user_data,load_map_ins_data
-from functions import load_top_trans_data,load_top_user_data,load_top_ins_data
+from transformdata import clone_repo
+from transformdata import load_agg_trans_data,load_agg_user_data,load_agg_ins_data
+from transformdata import load_map_trans_data,load_map_user_data,load_map_ins_data
+from transformdata import load_top_trans_data,load_top_user_data,load_top_ins_data
 
 #Get Phonepe Data from Repo
 clone_repo()
