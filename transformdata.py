@@ -17,7 +17,12 @@ def load_agg_trans_data():
     path_agg_trans = "phonepe_pulse/data/aggregated/transaction/country/india/state/"
     agg_state_list = os.listdir(path_agg_trans)
     
-    agg_trans = {'State':[], 'Year':[],'Quarter':[],'Transaction_type':[], 'Transaction_count':[], 'Transaction_amount':[]}
+    agg_trans = {'State':[], 
+                 'Year':[],
+                 'Quarter':[],
+                 'Transaction_type':[], 
+                 'Transaction_count':[], 
+                 'Transaction_amount':[]}
 
     for state in agg_state_list:
         state_path = os.path.join(path_agg_trans, state)
@@ -55,7 +60,12 @@ def load_agg_user_data():
     path_agg_user = "phonepe_pulse/data/aggregated/user/country/india/state/"
     agg_state_list = os.listdir(path_agg_user)
     
-    agg_user = {'State':[], 'Year':[],'Quarter':[],'Brand':[], 'Count':[], 'Percentage':[]}
+    agg_user = {'State':[], 
+                'Year':[],
+                'Quarter':[],
+                'Brand':[], 
+                'Count':[], 
+                'Percentage':[]}
 
     for state in agg_state_list:
         state_path = os.path.join(path_agg_user, state)
@@ -94,7 +104,12 @@ def load_agg_ins_data():
     path_agg_ins = "phonepe_pulse/data/aggregated/insurance/country/india/state/"
     agg_state_list = os.listdir(path_agg_ins)
     
-    agg_ins = {'State':[], 'Year':[],'Quarter':[],'Transaction_type':[], 'Transaction_count':[], 'Transaction_amount':[]}
+    agg_ins = {'State':[], 
+               'Year':[],
+               'Quarter':[],
+               'Transaction_type':[], 
+               'Transaction_count':[], 
+               'Transaction_amount':[]}
 
     for state in agg_state_list:
         state_path = os.path.join(path_agg_ins, state)
@@ -132,7 +147,12 @@ def load_map_trans_data():
     path_map_trans = "phonepe_pulse/data/map/transaction/hover/country/india/state"
     map_state_list = os.listdir(path_map_trans)
     
-    map_trans = {'State':[], 'Year':[],'Quarter':[],'Transaction_type':[], 'Transaction_count':[], 'Transaction_amount':[]}
+    map_trans = {'State':[], 
+                 'Year':[],
+                 'Quarter':[],
+                 'User_District':[], 
+                 'Transaction_count':[], 
+                 'Transaction_amount':[]}
 
     for state in map_state_list:
         state_path = os.path.join(path_map_trans, state)
@@ -152,7 +172,7 @@ def load_map_trans_data():
                                 for transaction in data['data']['hoverDataList']:
                                     count = transaction['metric'][0]['count']
                                     amount = transaction['metric'][0]['amount']
-                                    map_trans['Transaction_type'].append(transaction.get('name'))
+                                    map_trans['User_District'].append(transaction.get('name'))
                                     map_trans['Transaction_count'].append(count)
                                     map_trans['Transaction_amount'].append(amount)
                                     map_trans['State'].append(state)
@@ -214,7 +234,7 @@ def load_map_ins_data():
     path_map_ins = "phonepe_pulse/data/map/insurance/hover/country/india/state"
     map_state_list = os.listdir(path_map_ins)
     
-    map_ins = {'State':[], 'Year':[],'Quarter':[],'Transaction_type':[], 'Transaction_count':[], 'Transaction_amount':[]}
+    map_ins = {'State':[], 'Year':[],'Quarter':[],'User_District':[], 'Transaction_count':[], 'Transaction_amount':[]}
 
     for state in map_state_list:
         state_path = os.path.join(path_map_ins, state)
@@ -234,7 +254,7 @@ def load_map_ins_data():
                                 for insurance in data['data']['hoverDataList']:
                                     count = insurance['metric'][0]['count']
                                     amount = insurance['metric'][0]['amount']
-                                    map_ins['Transaction_type'].append(insurance.get('name'))
+                                    map_ins['User_District'].append(insurance.get('name'))
                                     map_ins['Transaction_count'].append(count)
                                     map_ins['Transaction_amount'].append(amount)
                                     map_ins['State'].append(state)
