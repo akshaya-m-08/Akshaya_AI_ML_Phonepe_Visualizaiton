@@ -321,7 +321,7 @@ def load_top_user_data():
         'Year': [],
         'Quarter': [],
         'User_District_Pincodes': [],
-        'Registered_User': []
+        'Registered_Users': []
     }
 
     for state in top_state_list:
@@ -341,7 +341,7 @@ def load_top_user_data():
                             if data.get('success') and data.get('data'):
                                 for user in data['data']['pincodes']:
                                     top_user['User_District_Pincodes'].append(user.get('name'))
-                                    top_user['Registered_User'].append(user.get('registeredUsers'))
+                                    top_user['Registered_Users'].append(user.get('registeredUsers'))
                                     top_user['State'].append(state)
                                     top_user['Year'].append(year)
                                     top_user['Quarter'].append(int(quarter.strip('.json')))
