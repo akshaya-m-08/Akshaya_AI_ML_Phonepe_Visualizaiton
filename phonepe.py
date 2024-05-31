@@ -6,11 +6,9 @@ from datainsight import app as datainsight_app
 from geoview import app as geoview_app
 import plotly.io as pio
 from streamlit_option_menu import option_menu
-import cryptography
-# Clear the cache
+
 pio.templates.default = None
 
-# Page configuration
 st.set_page_config(
     page_title="PhonePe Pulse Dashboard",
     page_icon="asset/web_logo.svg",
@@ -18,7 +16,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS styling
 st.markdown("""
 <style>
 
@@ -39,15 +36,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 image_path = "asset/PAGE_LOGO.svg"
 
-# Function to load and encode the image to base64
 def get_image_base64(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
-# Get the base64 encoded image
 image_base64 = get_image_base64(image_path)
 
-# Render the HTML content
 st.markdown(f'<div class="image-container"><img src="data:image/svg+xml;base64,{image_base64}" /></div>', unsafe_allow_html=True)
 
 
