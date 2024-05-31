@@ -1,50 +1,88 @@
-from transformdata import clone_repo
-from transformdata import load_agg_trans_data,load_agg_user_data,load_agg_ins_data
-from transformdata import load_map_trans_data,load_map_user_data,load_map_ins_data
-from transformdata import load_top_trans_data,load_top_user_data,load_top_ins_data
-
-from sqlconnect import Aggregated_SQL,Map_SQL,Top_SQL
-from sqlconnect import fetch_agg_trans_data, fetch_agg_user_data, fetch_agg_ins_data
-from sqlconnect import fetch_map_trans_data, fetch_map_user_data, fetch_map_ins_data
-from sqlconnect import fetch_top_trans_data, fetch_top_user_data, fetch_top_ins_data
-
 import streamlit as st
-import plotly.express as px
+import base64
+from exploredata import app as exploredata_app
+from statedata import app as statedata_app
+from datainsight import app as datainsight_app
+from geoview import app as geoview_app
+import plotly.io as pio
+from streamlit_option_menu import option_menu
+
+pio.templates.default = None
+
+st.set_page_config(
+    page_title="PhonePe Pulse Dashboard",
+    page_icon="asset/web_logo.svg",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+st.markdown("""
+<style>
+
+.image-container {
+    text-align: left;  
+    padding: 20px 0;
+}
+.image-container img {
+    height: 20%;
+    width: 100%; 
+}
+[data-testid="stSidebar"] 
+{
+    background-color: white; 
+    text-align: center;
+}
+</style>
+""", unsafe_allow_html=True)
+image_path = "asset/PAGE_LOGO.svg"
+
+def get_image_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+image_base64 = get_image_base64(image_path)
+
+st.markdown(f'<div class="image-container"><img src="data:image/svg+xml;base64,{image_base64}" /></div>', unsafe_allow_html=True)
 
 
-#Get Phonepe Data from Repo
-clone_repo()
 
-# Transform Aggregate data
-agg_trans = load_agg_trans_data()
-agg_user = load_agg_user_data()
-agg_ins = load_agg_ins_data()
+with st.sidebar:
+    st.write("")
+    st.write("")
+    selected = option_menu(
+        menu_title="Dashboard",
+        options=["Explore Data", "State-Wise Data", "Data Insights","Geo View"],
+        icons=["bar-chart-line", "bar-chart-line", "bar-chart-line","globe"],
+        menu_icon="cast",
+        default_index=0,
+        orientation="vertical",
+        styles={
+                    "container": {"padding": "5!important","background-color":"#230B43"},
+                    "icon": {"color": "white", "font-size": "23px"}, 
+                    "nav-link": {"color":"white","font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "#391C59"},
+                    "nav-link-selected": {"background-color": "#391C59"},}
+                
+                )
+    
+if selected == "Explore Data":
+    exploredata_app()  
+    
+if selected == "State-Wise Data":
+    statedata_app() 
+    
+if selected == "Data Insights":
+    datainsight_app() 
+        
+if selected == "Geo View":
+    geoview_app() 
 
-
-# Transform Map data
-map_trans = load_map_trans_data()
-map_user = load_map_user_data()
-map_ins = load_map_ins_data()
-
-
-# Transform Top data
-top_trans = load_top_trans_data()
-top_user = load_top_user_data()
-top_ins = load_top_ins_data()
-
-Aggregated_SQL(agg_trans,agg_user,agg_ins)
-Map_SQL(map_trans,map_user,map_ins)
-Top_SQL(top_trans,top_user,top_ins)
-
-df_agg_trans = fetch_agg_trans_data()
-df_agg_user = fetch_agg_user_data()
-df_agg_ins = fetch_agg_ins_data()
-
-df_map_trans = fetch_map_trans_data()
-df_map_user = fetch_map_user_data()
-df_map_ins = fetch_map_ins_data()
-
-
-df_top_trans = fetch_top_trans_data()
-df_top_user = fetch_top_user_data()
-df_top_ins= fetch_top_ins_data()
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.markdown("***")
+st.write("Created by **Akshaya Muralidharan**")
