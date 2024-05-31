@@ -44,8 +44,6 @@ image_base64 = get_image_base64(image_path)
 
 st.markdown(f'<div class="image-container"><img src="data:image/svg+xml;base64,{image_base64}" /></div>', unsafe_allow_html=True)
 
-
-
 with st.sidebar:
     st.write("")
     st.write("")
