@@ -95,7 +95,7 @@ To run the project locally, follow these steps:
 3. Run the Streamlit Application:
 
    ```bash
-   streamlit run app.py
+   streamlit run phonepe.py
 
 
 ## Contributors - Akshaya Muralidharan 
