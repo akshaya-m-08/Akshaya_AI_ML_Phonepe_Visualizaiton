@@ -42,15 +42,6 @@ The **State Data** tab allows users to dive deeper into data for each state and 
 
 ## Data Insights
 
-The **Data Insights** tab provides valuable insights into various aspects of the data. Users can:
-
-- Analyze yearly growth trends for transaction amount, transaction count, insurance premium amount, insurance premium count, registered users, and app opens in India.
-- Explore transaction amount, count, and user-related metrics by state.
-- Gain insights into brand-wise transaction amounts, transaction types, and average transaction amounts by quarter.
-- Understand the percentage distribution of transactions by type.
-
-## Data Insights
-
 The Data Insights tab provides the following insights:
 
 - Yearly Growth of Transaction Amount in India
@@ -97,5 +88,17 @@ To run the project locally, follow these steps:
    ```bash
    streamlit run phonepe.py
 
+**User Interface**
+
+![User Interface](UI.png)
+
+**GitHub Repository**
+
+Explore the code and contribute to the project on GitHub:
+
+https://github.com/akshaya-m-08/Akshaya_AI_ML_Phonepe_Visualizaiton.git
+
+## Conclusion:
+**The PhonePe Pulse Data Visualization Project**, offers a user-friendly platform for exploring and analyzing PhonePe transaction, insurance, and user demographic data. Through the utilization of Streamlit and MySQL, the project enables interactive visualization of various data aspects, including transaction trends, insurance metrics, and user demographics at national and state levels. With features like the Explore Data and State Data tabs providing detailed insights and the GeoView tab offering a global perspective, the project demonstrates the efficacy of data visualization in deriving meaningful insights.
 
 ## Contributors - Akshaya Muralidharan 
