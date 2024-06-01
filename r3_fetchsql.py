@@ -1,23 +1,14 @@
 #SQL connect to Fetch data from database
 import pymysql
 import pandas as pd
-import cryptography
 
-
-#Sql connect to phonepe database
 def my_sql_database_connect():
-    try:
-        import cryptography
-    except ImportError:
-        raise RuntimeError("The 'cryptography' package is required. Install it using 'pip install cryptography'.")
-
     conn = pymysql.connect(
         host="localhost",
         port=3307,
         user="root",
         password="root",
-        database="phonepe_pulse",
-        auth_plugin_map={'sha256_password': 'caching_sha2_password'} 
+        database="phonepe_pulse"
     )
     
     return conn
